@@ -1,0 +1,192 @@
+
+El archivo manage.py en Django es una herramienta de línea de comandos que facilita la gestión de tu proyecto Django. Es una utilidad versátil que te permite realizar una variedad de tareas relacionadas con el desarrollo, pruebas, despliegue y mantenimiento de tu aplicación. A continuación, te explico algunas de las opciones y comandos más comunes que puedes utilizar con manage.py.
+
+Comandos básicos de manage.py
+
+runserver
+
+Descripción: Inicia un servidor web de desarrollo en el puerto especificado (por defecto el puerto 8000).
+Uso: python manage.py runserver [puerto]
+Ejemplo: python manage.py runserver 8080 inicia el servidor en el puerto 8080.
+
+migrate
+
+Descripción: Aplica y sincroniza las migraciones de base de datos, asegurando que el esquema de la base de datos esté actualizado.
+Uso: python manage.py migrate
+Ejemplo: python manage.py migrate aplica todas las migraciones pendientes.
+
+makemigrations
+
+Descripción: Crea nuevas migraciones basadas en los cambios realizados en los modelos.
+Uso: python manage.py makemigrations [app_name]
+Ejemplo: python manage.py makemigrations myapp genera una migración para la aplicación myapp.
+
+createsuperuser
+
+Descripción: Crea un nuevo superusuario (administrador) para el panel de administración de Django.
+Uso: python manage.py createsuperuser
+Ejemplo: python manage.py createsuperuser te guiará a través del proceso de creación de un superusuario.
+
+shell
+
+Descripción: Inicia una consola interactiva de Python con el entorno de Django cargado.
+Uso: python manage.py shell
+Ejemplo: python manage.py shell abre una consola interactiva de Python.
+
+startapp
+
+Descripción: Crea una nueva aplicación dentro del proyecto Django.
+Uso: python manage.py startapp [app_name]
+Ejemplo: python manage.py startapp blog crea una nueva aplicación llamada blog.
+
+startproject
+
+Descripción: Crea un nuevo proyecto Django.
+Uso: django-admin startproject [project_name]
+Ejemplo: django-admin startproject myproject crea un nuevo proyecto llamado myproject.
+
+test
+
+Descripción: Ejecuta las pruebas unitarias de Django.
+Uso: python manage.py test [app_name]
+Ejemplo: python manage.py test blog ejecuta las pruebas de la aplicación blog.
+
+collectstatic
+
+Descripción: Recoge todos los archivos estáticos de las aplicaciones y los copia en el directorio de archivos estáticos definido en la configuración.
+Uso: python manage.py collectstatic
+Ejemplo: python manage.py collectstatic recopila los archivos estáticos y los copia en el directorio especificado.
+
+flush
+
+Descripción: Elimina todos los datos de la base de datos y reinicia todas las tablas.
+Uso: python manage.py flush
+Ejemplo: python manage.py flush elimina todos los datos en la base de datos pero no las tablas.
+
+
+Cómo utilizar manage.py
+Para utilizar estos comandos, debes estar en el directorio raíz de tu proyecto Django, donde se encuentra el archivo manage.py. Luego, ejecutas los comandos a través de la línea de comandos o terminal de tu sistema operativo.
+
+Ejemplo de uso en la terminal:
+
+sh
+Copiar código
+cd path/to/your/django/project
+python manage.py runserver
+Comandos adicionales
+Además de los comandos mencionados, hay muchos otros comandos que puedes utilizar dependiendo de tus necesidades, como dumpdata, loaddata, dbshell, etc. Puedes obtener una lista completa de los comandos disponibles ejecutando:
+
+sh
+
+Copiar código
+
+python manage.py help
+Y para obtener ayuda específica sobre cualquier comando, puedes usar:
+
+sh
+Copiar código
+python manage.py help [command]
+Ejemplo:
+
+sh
+Copiar código
+python manage.py help migrate
+
+
+METODOS MAS COMUNES EN DJANGO
+
+En Django, existen varios métodos y funciones que se utilizan en diversas partes del framework, desde modelos y vistas hasta formularios y plantillas. A continuación, te proporcionaré una lista de los métodos y funciones más comunes organizados por categoría.
+
+Modelos
+Métodos de modelos (clase models.Model):
+
+save(): Guarda un objeto en la base de datos.
+delete(): Elimina un objeto de la base de datos.
+__str__(): Representación en cadena del objeto.
+get_absolute_url(): Devuelve la URL absoluta para el objeto.
+Consultas (QuerySets y Managers):
+
+all(): Devuelve todos los objetos.
+filter(): Filtra objetos basados en criterios.
+exclude(): Excluye objetos basados en criterios.
+get(): Obtiene un único objeto que cumple con los criterios.
+order_by(): Ordena los resultados basados en los campos especificados.
+values(): Devuelve un QuerySet de diccionarios.
+values_list(): Devuelve un QuerySet de tuplas.
+distinct(): Elimina duplicados.
+count(): Devuelve el número de objetos.
+first(): Devuelve el primer objeto.
+last(): Devuelve el último objeto.
+exists(): Verifica si existen objetos.
+update(): Actualiza los objetos que cumplen con los criterios.
+Formularios
+Métodos de formularios (clase forms.Form):
+
+is_valid(): Verifica si los datos del formulario son válidos.
+clean(): Limpia y valida los datos del formulario.
+save(): Guarda los datos del formulario en la base de datos (usualmente en ModelForm).
+Campos de formularios:
+
+CharField()
+IntegerField()
+DateField()
+EmailField()
+ChoiceField()
+BooleanField()
+Vistas
+Funciones de vistas:
+
+render(): Renderiza una plantilla con un contexto dado.
+redirect(): Redirige a otra URL.
+get_object_or_404(): Obtiene un objeto o lanza un 404.
+get_list_or_404(): Obtiene una lista de objetos o lanza un 404.
+Vistas genéricas basadas en clases (Class-Based Views):
+
+TemplateView
+ListView
+DetailView
+CreateView
+UpdateView
+DeleteView
+Plantillas
+Etiquetas y filtros de plantillas:
+{{ variable }}
+{% block %}
+{% endblock %}
+{% for %}
+{% endfor %}
+{% if %}
+{% endif %}
+{% include %}
+{{ variable|filter }}
+{{ variable|length }}
+{{ variable|date:"Y-m-d" }}
+Autenticación
+Funciones de autenticación:
+login(): Inicia una sesión para un usuario.
+logout(): Cierra la sesión del usuario.
+authenticate(): Autentica las credenciales del usuario.
+get_user_model(): Devuelve el modelo de usuario activo.
+Middleware
+Métodos de middleware:
+__init__(): Inicializa el middleware.
+__call__(): Llama al middleware.
+process_request(): Procesa la solicitud antes de que se llegue a la vista.
+process_response(): Procesa la respuesta después de que la vista haya sido ejecutada.
+URLs
+Funciones de enrutamiento de URLs:
+path(): Define una ruta URL.
+re_path(): Define una ruta URL usando expresiones regulares.
+include(): Incluye otro archivo de URLs.
+reverse(): Genera una URL a partir del nombre de una vista.
+Migraciones
+Comandos de migraciones:
+makemigrations: Crea nuevas migraciones basadas en los cambios en los modelos.
+migrate: Aplica y sincroniza las migraciones de base de datos.
+sqlmigrate: Muestra el SQL que se ejecutará para una migración específica.
+showmigrations: Muestra las migraciones aplicadas y no aplicadas.
+Otros
+Funciones auxiliares:
+get_object_or_404(): Obtiene un objeto o lanza un 404.
+get_list_or_404(): Obtiene una lista de objetos o lanza un 404.
+import_module(): Importa un módulo dinámicamente.
