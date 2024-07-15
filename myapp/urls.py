@@ -9,6 +9,6 @@ urlpatterns = [
     path('hello/<str:username>', views.hello ),
     path('entero/<int:id>', views.entero),
     path('Projects/',views.Projects),
-     path('Tasks/<str:title>',views.Tasks),
+    path('Tasks/<str:title>',views.Tasks),
     
 ]

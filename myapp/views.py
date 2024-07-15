@@ -1,12 +1,11 @@
 
 from django.http import HttpResponse, JsonResponse
 from .models import Project, Task
-from django.shortcuts import get_object_or_404
-
+from django.shortcuts import get_object_or_404, render
 # Create your views here.
 
 def index(request):
-    return HttpResponse("<h2>index page.</h2>")
+    return render (request,'index.html')
 
 def entero(request,id):
     print(entero)
@@ -26,7 +25,7 @@ def Projects(request):
     return JsonResponse(projects, safe = False)
 
 def Tasks(request,title):
-    task =get_object_or_404 (Task, title=title)
+    task = get_object_or_404 (Task, title=title)
     return HttpResponse('task:{}'.format(task.title))
 
      
